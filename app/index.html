@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Boulevard — Cover Maker</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23ff5da2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">NB</span> Neon Boulevard <em>Cover Maker</em></div>
+  <p class="topnote">100% offline — your photos never leave this machine.</p>
+</header>
+<main class="app">
+  <section class="stage">
+    <canvas id="preview" width="540" height="540" aria-label="Cover preview"></canvas>
+    <div id="panels" class="panel-strip" aria-label="Panels"></div>
+    <p class="hint">Click a panel on the cover, or a chip below, to crop and position that photo.</p>
+  </section>
+  <section class="controls">
+    <h2>1 · Layout</h2>
+    <div id="layoutRow" class="choices"></div>
+    <p id="layoutHint" class="hint"></p>
+
+    <h2>2 · Colour grade</h2>
+    <div id="gradeRow" class="choices"></div>
+
+    <h2>3 · Photos</h2>
+    <label class="file">Photo A <input id="photoA" type="file" accept="image/*"></label>
+    <label class="file">Photo B <input id="photoB" type="file" accept="image/*"></label>
+    <div class="row">
+      <button id="fillA" type="button">Fill all with A</button>
+      <button id="fillB" type="button">Fill all with B</button>
+      <button id="resetPanels" type="button">Reset panels</button>
+    </div>
+
+    <h2>4 · Selected panel</h2>
+    <div class="row">
+      <button type="button" data-src="a">Use Photo A</button>
+      <button type="button" data-src="b">Use Photo B</button>
+    </div>
+    <label>Zoom <span id="zoomVal">100%</span>
+      <input id="zoom" type="range" min="1" max="2.5" step="0.05" value="1">
+    </label>
+    <label>Pan left–right <span id="panxVal">0.00</span>
+      <input id="panx" type="range" min="-0.5" max="0.5" step="0.05" value="0">
+    </label>
+    <label>Pan up–down <span id="panyVal">0.00</span>
+      <input id="pany" type="range" min="-0.5" max="0.5" step="0.05" value="0">
+    </label>
+
+    <h2>5 · Caption</h2>
+    <label>Title <input id="title" type="text" maxlength="32" value="Sunset Run"></label>
+    <label>Subtitle <input id="subtitle" type="text" maxlength="48" value="neon nights on the boulevard"></label>
+    <button id="titlePos" type="button">Title: bottom</button>
+
+    <h2>6 · Size &amp; export</h2>
+    <div id="sizeRow" class="choices"></div>
+    <button id="export" type="button" class="primary">Export PNG</button>
+    <p id="status" role="status"></p>
+    <p class="fine">Lettering: Anton, Pacifico &amp; Bebas Neue under the SIL Open Font License
+      (see fonts/OFL.txt). Sample photos were made with an image model and are free to use.
+      All art here is original — no game logos, artwork or fonts.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
